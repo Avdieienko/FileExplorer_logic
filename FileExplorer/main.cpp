@@ -62,7 +62,7 @@ int main() {
 				continue;
 			}
 			// Check if file is executable
-			if (filePath.extension().string() != "") {
+			if (fs::status(filePath).type() != fs::file_type::directory) {
 				// Execute file
 				ShellExecute(NULL, L"open", filePath.wstring().c_str(), NULL, NULL, SW_SHOW);
 			}
